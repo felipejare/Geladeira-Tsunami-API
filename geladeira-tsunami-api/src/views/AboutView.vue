@@ -5,7 +5,9 @@ export default {
     return {
       token: "dddd",
       dados: {},
-      albums: []
+      albums: [],
+      artista: {},
+      artista2: {}
     };
   },
   methods: {
@@ -24,18 +26,21 @@ export default {
   },
   async created() {
     this.token = this.$route.query["access_token"];
-    const { data } = await  axios.get('https://api.spotify.com/v1/me', { headers: {
+
+     let response = await  axios.get('https://api.spotify.com/v1/me', { headers: {
       Authorization: `Bearer ${this.token}`}
     })
-    this.dados = data
+    this.dados = response.data
 
-    const res = await axios.get('https://api.spotify.com/v1/browse/categories', { 
-      headers: {
-        Authorization: `Bearer ${this.token}`,
-        Host: 'api.spotify.com'
-      }
+    response = await axios.get('	https://api.spotify.com/v1/artists/6ab8tnQvr8sXXIpSZCrbQs', { headers: {
+      Authorization: `Bearer ${this.token}`} 
     })
-    this.albums = res.data
+    this.artista = response.data
+
+    response = await axios.get('	https://api.spotify.com/v1/artists/3ZHU5AKrUmIPnCFfr82QER', { headers: {
+      Authorization: `Bearer ${this.token}`} 
+    })
+    this.artista2 = response.data
     // console.log(this.getHashParams());
   },
 };
@@ -51,7 +56,14 @@ export default {
     <hr>
     {{ dados.id}}
     <hr>
-    {{ albums }}
+    {{ artista.genres }}
+    {{ artista.name }}
+    {{ artista.followers }}
+    <hr>
+    {{ artista2.genres }}
+    {{ artista2.name }}
+    {{ artista2.followers }}
+
   </div>
 </template>
 
