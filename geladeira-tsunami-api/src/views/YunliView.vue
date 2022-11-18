@@ -8,7 +8,6 @@ export default {
       albums: {},
       artista: {},
       toptrack: {},
-      albumtrack: {},
       musica: "",
       musica_mp3: "",
     };
@@ -65,16 +64,6 @@ export default {
     );
     this.albums = response.data;
 
-    response = await axios.get(
-      "https://api.spotify.com/v1/albums/0eX2yFKyUIbC4dhi7Q8jPU/tracks",
-      {
-        headers: {
-          Authorizartion: `Bearer ${this.token}`,
-        },
-      }
-    );
-    this.albumtrack = response.data;
-
     // console.log(this.getHashParams());
   },
 };
@@ -88,7 +77,7 @@ export default {
     {{ artista.genres }}
     {{ artista.name }}
     {{ artista.followers }}
-    <img :src="albums.images[0].url" width="150" height="200" />
+    <img :src="albums.images[0].url" width="200" height="200" />
     <br />
   </div>
   <div v-for="item of albums.tracks.items" :key="item.id">
