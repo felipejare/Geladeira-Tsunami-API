@@ -27,6 +27,8 @@ export default {
     },
   },
   async created() {
+    // GRAVAR NO PINIA.....
+
     this.token = this.$route.query["access_token"];
 
     let response = await axios.get("https://api.spotify.com/v1/me", {
@@ -103,7 +105,7 @@ BQBMncPKqXAC1osnPCfFJBOIsK9PmwutW2K_QFaX_B75vgz_xBpXA3hAeCoqZHlwEZ0Yrk9UGRd0QIIJ
     </div>
     <hr />
     <div class="artista">
-      <RouterLink to="/nonly">
+      <RouterLink to="/nonly0">
         <img class="artimg" src="public/download.jpeg" alt="" />
         {{ artista2.genres }}
         {{ artista2.name }}

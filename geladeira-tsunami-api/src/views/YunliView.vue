@@ -42,6 +42,7 @@ export default {
     },
   },
   async created() {
+    // LER DO PINIA.. MAS ISSO PODE SER FEITO NO COMPUTED....
     this.token = this.$route.query["access_token"];
 
     let response = await axios.get(
@@ -58,7 +59,7 @@ export default {
       "https://api.spotify.com/v1/albums/0eX2yFKyUIbC4dhi7Q8jPU",
       {
         headers: {
-          Authorization: `Bearer ${this.token}`,
+          Authorization: `Bearer ${this.token}  `,
         },
       }
     );
