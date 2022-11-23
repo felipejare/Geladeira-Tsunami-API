@@ -33,19 +33,19 @@ export default {
     },
     async getPreviewUrl(preview) {
       const res = await axios.get(preview);
-      console.log("oioioi");
       console.log(res);
       return res.data;
     },
-    async tocar(item) {
-      let response = await axios.get(item.href, {
-        headers: {
-          Authorization: `Bearer ${this.token}`,
-        },
-      });
-      this.musica_mp3 = response.data;
-      this.musica = item.preview_url;
-    },
+    // não ta funcionando agora porem, vou mudar pra fazer funcionar
+    // async tocar(item) {
+    //   let response = await axios.get(item.href, {
+    //     headers: {
+    //       Authorization: `Bearer ${this.token}`,
+    //     },
+    //   });
+    //   this.musica_mp3 = response.data;
+    //   this.musica = item.preview_url;
+    // },
   },
   async created() {
     // LER DO PINIA.. MAS ISSO PODE SER FEITO NO COMPUTED....
@@ -79,6 +79,9 @@ export default {
 <template>
   <div>
     <h1>{{ albums.name }}</h1>
+  </div>
+  <div>
+    {{ albums.copyrights }}
   </div>
   <div>
     {{ artista.genres }}
