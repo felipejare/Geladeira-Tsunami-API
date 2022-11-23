@@ -1,9 +1,10 @@
 <script>
 import axios from "axios";
+import { mapStores, mapState, mapActions} from 'pinia'
+import { useAuthStore } from "../stores/auth";
 export default {
   data() {
     return {
-      token: "dddd",
       dados: {},
       albums: [],
       artista: {},
@@ -12,7 +13,12 @@ export default {
       artista4: {},
     };
   },
+  computed: {
+    ...mapStores(useAuthStore),
+    ...mapState(useAuthStore, ['token'])
+  },
   methods: {
+    ...mapActions(useAuthStore, ['setToken']),
     getHashParams() {
       var hashParams = {};
       var e,
@@ -27,9 +33,10 @@ export default {
     },
   },
   async created() {
-    // GRAVAR NO PINIA.....
-
-    this.token = this.$route.query["access_token"];
+  
+    this.setToken(this.$route.query["access_token"])
+    
+    console.log(this.token)
 
     let response = await axios.get("https://api.spotify.com/v1/me", {
       headers: {
@@ -105,7 +112,7 @@ BQBMncPKqXAC1osnPCfFJBOIsK9PmwutW2K_QFaX_B75vgz_xBpXA3hAeCoqZHlwEZ0Yrk9UGRd0QIIJ
     </div>
     <hr />
     <div class="artista">
-      <RouterLink to="/nonly0">
+      <RouterLink to="/nonly">
         <img class="artimg" src="public/download.jpeg" alt="" />
         {{ artista2.genres }}
         {{ artista2.name }}
