@@ -82,6 +82,7 @@ export default {
   </div>
   <div>
     {{ albums.copyrights }}
+    {{ albums.label }}
   </div>
   <div>
     {{ artista.genres }}
@@ -94,7 +95,7 @@ export default {
     <h3>{{ item.name }}</h3>
     <audio controls>
       <source :src="item.preview_url" type="audio/mpeg" />
-      Your browser does not support the audio element.
+
     </audio>
     <button @click="tocar(item)">Tocar</button>
   </div>
@@ -110,7 +111,6 @@ export default {
     <h1>Musica completa</h1>
     <audio controls>
       <source :src="musica_mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
     </audio>
   </div>
 </template>
