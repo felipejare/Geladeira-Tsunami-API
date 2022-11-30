@@ -6,8 +6,8 @@ export default {
   data() {
     return{
       dados: {},
-      albums: [],
-      artista: {},
+      moodswingsinthisorder: [],
+      dprian: {},
      };
   },
   computed: {
@@ -42,7 +42,7 @@ export default {
         },
       }
     );
-    this.artista = response.data;
+    this.dprian = response.data;
     
     response = await axios.get(
       "https://api.spotify.com/v1/albums/2hPHncbZRuWiCBauEUJxyA?market=BR",
@@ -52,19 +52,35 @@ export default {
         },
       }
     );
-    this.albums = response.data;
+    this.moodswingsinthisorder = response.data;
   }
 }
 </script>
 <template>
-  <h1>{{ albums.name }}</h1>
+  <h1>{{ moodswingsinthisorder.name }}</h1>
   <p>
-    {{ albums.copyrights }}
-    {{ albums.label }}
+    {{ moodswingsinthisorder.copyrights }}
+    {{ moodswingsinthisorder.label }}
   </p>
-  <p>
-    {{ artista.name }}
-    {{ artista.genres }}
-    {{ artista.followers }}
-  </p>
+  <div>
+    <p>
+      {{ dprian.name }}
+      {{ dprian.genres }}
+      {{ dprian.followers }}
+    </p>
+    <img :src="moodswingsinthisorder.images[0].url" width="200" height="200">
+  </div>
+  <div v-for="item of moodswingsinthisorder.tracks.items" :key="item.id">
+    <h3>{{ item.name }}</h3>
+    <audio controls>
+      <source :src="item.preview_url" type="audio/mpeg" />
+    </audio>
+    <button @click="tocar(item)">Tocar</button>
+  </div>
+  <div v-if="musica">
+    <h1>Música Completa</h1>
+    <audio controls>
+      <source :src="musica_mp3" type="audio/mpeg" />
+    </audio>
+  </div>
 </template>

@@ -33,19 +33,19 @@ export default {
     },
     async getPreviewUrl(preview) {
       const res = await axios.get(preview);
+      console.log("oioioi");
       console.log(res);
       return res.data;
     },
-    // não ta funcionando agora porem, vou mudar pra fazer funcionar
-    // async tocar(item) {
-    //   let response = await axios.get(item.href, {
-    //     headers: {
-    //       Authorization: `Bearer ${this.token}`,
-    //     },
-    //   });
-    //   this.musica_mp3 = response.data;
-    //   this.musica = item.preview_url;
-    // },
+    async tocar(item) {
+      let response = await axios.get(item.href, {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      });
+      this.musica_mp3 = response.data;
+      this.musica = item.preview_url;
+    },
   },
   async created() {
     // LER DO PINIA.. MAS ISSO PODE SER FEITO NO COMPUTED....
@@ -81,10 +81,6 @@ export default {
     <h1>{{ albums.name }}</h1>
   </div>
   <div>
-    {{ albums.copyrights }}
-    {{ albums.label }}
-  </div>
-  <div>
     {{ artista.genres }}
     {{ artista.name }}
     {{ artista.followers }}
@@ -95,7 +91,7 @@ export default {
     <h3>{{ item.name }}</h3>
     <audio controls>
       <source :src="item.preview_url" type="audio/mpeg" />
-
+      Your browser does not support the audio element.
     </audio>
     <button @click="tocar(item)">Tocar</button>
   </div>
@@ -111,6 +107,7 @@ export default {
     <h1>Musica completa</h1>
     <audio controls>
       <source :src="musica_mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
     </audio>
   </div>
 </template>
