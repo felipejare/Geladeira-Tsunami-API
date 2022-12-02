@@ -6,16 +6,20 @@
     <div class="stars2"></div>
     <body>
       <div class="divCenter">
-        <h1>Bem vindos ao TSIDGE</h1>
+        <h1 class="bemvindo">Bem vindos ao TSIDGE</h1>
         <a href="http://localhost:8888">
           <button class="button-64" role="button"><span class="text">Entre aqui!!1!</span></button>
         </a>
     </div>
     </body>
+    
   </main>
 </template>
 
 <style scoped>
+.bemvindo{
+  margin-left: 40px;
+}
 main{
   color: #FFFFFF;
   background-color: #2f413a;
@@ -27,6 +31,8 @@ body{
 }
 
 .divCenter { 
+  box-shadow: #202928
+   8px 8px;
  background-color: #4D6360; 
  width: 400px; 
  height: 250px; 
@@ -55,14 +61,45 @@ body{
     250px 130px white,
     200px 50px white,
     150px 100px white,
+    400px 100px white,
+    450px 20px white,
+    500px 80px white,
+    550px 130px white,
+    600px 150px white,
+    650px 20px white,
+    700px 80px white,
+    750px 130px white,
+    800px 100px white,
+    850px 50px white,
+    900px 120px white,
+    950px 110px white,
+    1000px 30px white,
+    1050px 80px white,
+    1100px 130px white,
+    1150px 40px white,
+    1200px 100px white,
+    1250px 130px white,
+    1300px 80px white,
+    1350px 20px white,
+    1400px 50px white,
+    1450px 40px white,
+    1500px 140px white,
+    1550px 50px white,
+    1600px 30px white,
+    1650px 100px white,
+    1700px 111px white,
+    1750px 122px white,
+    1800px 145px white,
+    1850px 20px white,
+    1700px 150px white,
     320px 100px white;
 }
 @keyframes anim-stars {
     from {
-        transform: translateY(0px);
+        transform: translateY(780px);
     }
     to {
-        transform: translateY(-150px);
+        transform: translateY(100px);
     }
 }
 .stars{
@@ -80,7 +117,41 @@ body{
     250px 130px white,
     200px 50px white,
     150px 100px white,
+    350px 100px white,
+    450px 20px white,
+    500px 60px white,
+    550px 140px white,
+    600px 122px white,
+    650px 111px white,
+    700px 10px white,
+    750px 150px white,
+    800px 140px white,
+    850px 20px white,
+    900px 140px white,
+    950px 30px white,
+    1000px 80px white,
+    1050px 133px white,
+    1100px 60px white,
+    1150px 111px white,
+    1200px 30px white,
+    1250px 140px white,
+    1300px 100px white,
+    1350px 50px white,
+    1400px 160px white,
+    1450px 30px white,
+    1500px 10px white,
+    1550px 100px white,
+    1600px 150px white,
+    1650px 20px white,
+    1700px 140px white,
+    1750px 50px white,
+    1800px 150px white,
+    1850px 20px white,
     320px 100px white;
+
+    
+
+    
 }
 .stars{
 	position: relative;
@@ -106,6 +177,35 @@ body{
     230px 10px white,
     120px 130px white,
     300px 130px white,
+    450px 20px white,
+    500px 60px white,
+    550px 140px white,
+    600px 122px white,
+    650px 111px white,
+    700px 10px white,
+    750px 150px white,
+    800px 140px white,
+    850px 20px white,
+    900px 140px white,
+    950px 30px white,
+    1000px 80px white,
+    1050px 133px white,
+    1100px 60px white,
+    1150px 111px white,
+    1200px 30px white,
+    1250px 140px white,
+    1300px 100px white,
+    1350px 50px white,
+    1400px 160px white,
+    1450px 30px white,
+    1500px 10px white,
+    1550px 100px white,
+    1600px 150px white,
+    1650px 20px white,
+    1700px 140px white,
+    1750px 50px white,
+    1800px 150px white,
+    1850px 20px white,
     220px 115px white;
   animation: anim-stars 20s linear infinite;
 }
@@ -125,6 +225,37 @@ body{
     230px 10px white,
     120px 130px white,
     300px 130px white,
+    400px 100px white,
+    450px 20px white,
+    500px 80px white,
+    550px 130px white,
+    600px 150px white,
+    650px 20px white,
+    700px 80px white,
+    750px 130px white,
+    800px 100px white,
+    850px 50px white,
+    900px 120px white,
+    950px 110px white,
+    1000px 30px white,
+    1050px 80px white,
+    1100px 130px white,
+    1150px 40px white,
+    1200px 100px white,
+    1250px 130px white,
+    1300px 80px white,
+    1350px 20px white,
+    1400px 50px white,
+    1450px 40px white,
+    1500px 140px white,
+    1550px 50px white,
+    1600px 30px white,
+    1650px 100px white,
+    1700px 111px white,
+    1750px 122px white,
+    1800px 145px white,
+    1850px 20px white,
+    1700px 150px white,
     220px 115px white;
 }
 
