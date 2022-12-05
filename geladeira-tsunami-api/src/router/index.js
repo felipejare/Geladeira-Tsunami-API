@@ -4,6 +4,7 @@ import YunliView from '../views/YunliView.vue'
 import DprianView from '../views/DprianView.vue'
 import DprliveView from '../views/DprliveView.vue'
 import NonlyView from '../views/NonlyView.vue'
+import PerfilView from '../views/PerfilView.vue'
 
 
 const router = createRouter({
@@ -15,12 +16,14 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/main',
+      name: 'main',
+      component: () => import('../views/MainView.vue')
+    },
+    {
       path: '/callback',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      name: 'callback',
+      component: () => import('../views/CallbackView.vue')
     },
     {
       path: '/yunli',
@@ -42,6 +45,11 @@ const router = createRouter({
       path: '/dprlive',
       name: 'dprlive',
       component: DprliveView
+    },
+    {
+      path: '/perfil',
+      name: 'perfil',
+      component: PerfilView
     }
   ]
 })

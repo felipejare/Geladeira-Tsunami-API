@@ -6,8 +6,8 @@ export default {
   data() {
     return{
       dados: {},
-      albums: [],
-      artista: {},
+      her: [],
+      dprlive: {},
      };
   },
   computed: {
@@ -21,7 +21,7 @@ export default {
         r = /([^&;=]+)=?([^&;]*)/g,
         q = this.token;
       e = r.exec(q);
-      while (e) {
+      while (e) {albums
         hashParams[e[1]] = decodeURIComponent(e[2]);
         e = r.exec(q);
       }
@@ -42,7 +42,7 @@ export default {
         },
       }
     );
-    this.artista = response.data;
+    this.dprlive = response.data;
     
     response = await axios.get(
       "https://api.spotify.com/v1/albums/1XtTygUdUqtwPyErnZxLbR?market=BR",
@@ -52,25 +52,25 @@ export default {
         },
       }
     );
-    this.albums = response.data;
+    this.her = response.data;
   }
 }
 </script>
 <template>
-  <h1>{{ albums.name }}</h1>
+  <h1>{{ her.name }}</h1>
   <p>
-    {{ albums.copyrights }}
-    {{ albums.label }}
+    {{ her.copyrights }}
+    {{ her.label }}
   </p>
   <div>
     <p>
-      {{ artista.name }}
-      {{ artista.genres }}
-      {{ artista.followers }}
+      {{ dprlive.name }}
+      {{ dprlive.genres }}
+      {{ dprlive.followers }}
     </p>
-    <img :src="albums.images[0].url" width="200" height="200">
+    <img :src="her.images[0].url" width="200" height="200">
   </div>
-  <div v-for="item of albums.tracks.items" :key="item.id">
+  <div v-for="item of her.tracks.items" :key="item.id">
     <h3>{{ item.name }}</h3>
     <audio controls>
       <source :src="item.preview_url" type="audio/mpeg" />
