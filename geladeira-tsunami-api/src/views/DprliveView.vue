@@ -1,18 +1,18 @@
 <script>
 import axios from "axios";
-import { mapStores, mapState } from "pinia"
-import { useAuthStore } from "../stores/auth"
+import { mapStores, mapState } from "pinia";
+import { useAuthStore } from "../stores/auth";
 export default {
   data() {
-    return{
+    return {
       dados: {},
       her: [],
       dprlive: {},
-     };
+    };
   },
   computed: {
     ...mapStores(useAuthStore),
-    ...mapState(useAuthStore, ['token'])
+    ...mapState(useAuthStore, ["token"]),
   },
   methods: {
     getHashParams() {
@@ -21,7 +21,8 @@ export default {
         r = /([^&;=]+)=?([^&;]*)/g,
         q = this.token;
       e = r.exec(q);
-      while (e) {albums
+      while (e) {
+        albums;
         hashParams[e[1]] = decodeURIComponent(e[2]);
         e = r.exec(q);
       }
@@ -43,7 +44,7 @@ export default {
       }
     );
     this.dprlive = response.data;
-    
+
     response = await axios.get(
       "https://api.spotify.com/v1/albums/1XtTygUdUqtwPyErnZxLbR?market=BR",
       {
@@ -53,34 +54,50 @@ export default {
       }
     );
     this.her = response.data;
-  }
-}
+  },
+};
 </script>
 <template>
-  <h1>{{ her.name }}</h1>
-  <p>
-    {{ her.copyrights }}
-    {{ her.label }}
-  </p>
-  <div>
+  <div class="container">
     <p>
-      {{ dprlive.name }}
-      {{ dprlive.genres }}
-      {{ dprlive.followers }}
     </p>
-    <img :src="her.images[0].url" width="200" height="200">
-  </div>
-  <div v-for="item of her.tracks.items" :key="item.id">
-    <h3>{{ item.name }}</h3>
-    <audio controls>
-      <source :src="item.preview_url" type="audio/mpeg" />
-    </audio>
-    <button @click="tocar(item)">Tocar</button>
-  </div>
-  <div v-if="musica">
-    <h1>Música Completa</h1>
-    <audio controls>
-      <source :src="musica_mp3" type="audio/mpeg" />
-    </audio>
+    <div class="topo">
+      <p>
+        {{ dprlive.name }}
+        {{ dprlive.genres }}
+        {{ dprlive.followers }}
+      </p>
+      <img :src="her.images[0].url" width="200" height="200" />
+      <h4>Album</h4>
+      <h1>{{ her.name }}</h1> 
+    </div>
+    <div v-for="item of her.tracks.items" :key="item.id">
+      <h3>{{ item.name }}</h3>
+      <audio controls>
+        <source :src="item.preview_url" type="audio/mpeg" />
+      </audio>
+      <button @click="tocar(item)">Tocar</button>
+    </div>
+    <div v-if="musica">
+      <h1>Música Completa</h1>
+      <audio controls>
+        <source :src="musica_mp3" type="audio/mpeg" />
+      </audio>
+    </div>
   </div>
 </template>
+<style scoped>
+.container{
+  background-color: #384842;
+}
+
+.topo{
+  display: flex;
+}
+
+img {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    
+}
+</style>
