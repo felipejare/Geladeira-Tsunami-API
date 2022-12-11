@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <main class="container">
+  <main class="homepage">
     <div class="stars"></div>
     <div class="stars2"></div>
     <body>
