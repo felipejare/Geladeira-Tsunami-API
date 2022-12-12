@@ -58,8 +58,8 @@ export default {
 };
 </script>
 <template>
-  <div class="container">
-    <a href="http://localhost:5173/main">Voltar</a>
+  <div class="container ">
+    <a href="http://localhost:5173/main" class="backbutton">Voltar</a>
     
     <div class="topo">
       <p>
@@ -71,40 +71,42 @@ export default {
       <h4>Album</h4>
       <h1>{{ her.name }}</h1> 
     </div>
-    <div class="blocoprincipal">  
-      <button class="button-78" role="button">P</button>
-      <div class="heart"></div>
-      <div v-for="item of her.tracks.items" :key="item.id">
-        <h3>{{ item.name }}</h3>
-        <audio controls>
-          <source :src="item.preview_url" type="audio/mpeg" />
-        </audio>
-        <button @click="tocar(item)">Tocar</button>
-      </div>
-      <div v-if="musica">
-        <h1>Música Completa</h1>
-        <audio controls>
-          <source :src="musica_mp3" type="audio/mpeg" />
-        </audio>
-      </div>
+    <div class="blocoprincipal">
+      <div class="informations">  
+        <button class="button-78" role="button">P</button>
+        <div class="heart"></div>
+        <div v-for="item of her.tracks.items" :key="item.id">
+          <h3>{{ item.name }}</h3>
+          <audio controls>
+            <source :src="item.preview_url" type="audio/mpeg" />
+          </audio>
+        </div>
+      </div>  
     </div>  
   </div>
 </template>
 <style scoped>
 .container{
   color: #FFFFFF;
-  background-color: #2f413a;
-  background: linear-gradient(0, #2f413a, #000000);
-  background-color: #384842;
+  background: linear-gradient(0, #000000, rgba(152, 119, 136));
+  height: 100vh;
 }
 
 .blocoprincipal{
   background: linear-gradient(1, #00000000, #000000);
   background-color:rgba(0, 0, 0, 0.3);
-
+  border-radius: 4px;
   margin: auto;
-  width: 80%;
+  width: 100%;
   padding: 10px;
+}
+
+.informations{
+  padding-top: 30px;
+  padding-left: 30px;
+  margin: auto;
+
+
 }
 
 .topo{
@@ -236,7 +238,7 @@ img {
   height: 30px;
   margin: 0 30px;
   position: relative;
-  top: 0;
+  top: 13px;
   transform: rotate(-45deg);
   width: 30px;
   
@@ -260,5 +262,15 @@ img {
 .heart:after {
   left: 15px;
   top: 0;
+}
+
+.backbutton{
+  background-color: black;
+  color: white;
+  border-radius: 30%;
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  text-decoration: none;
 }
 </style>

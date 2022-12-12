@@ -121,7 +121,7 @@ export default {
 </script>
 <template>
   <header>
-    <h1>TSIDGE</h1>
+    <h1>Spotify Dôs</h1>
     <RouterLink to="/perfil">
       <h2>{{ dados.display_name }} ==</h2>
     </RouterLink>
