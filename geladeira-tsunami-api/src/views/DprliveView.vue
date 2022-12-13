@@ -2,7 +2,9 @@
 import axios from "axios";
 import { mapStores, mapState } from "pinia";
 import { useAuthStore } from "../stores/auth";
+
 export default {
+  
   data() {
     return {
       dados: {},
@@ -58,18 +60,19 @@ export default {
 };
 </script>
 <template>
+  
   <div class="container ">
     <a href="http://localhost:5173/main" class="backbutton">Voltar</a>
-    
     <div class="topo">
-      <p>
+      <p class="titulo">
         {{ dprlive.name }}
         {{ dprlive.genres }}
-        {{ dprlive.followers }}
       </p>
       <img :src="her.images[0].url" width="200" height="200" />
-      <h4>Album</h4>
-      <h1>{{ her.name }}</h1> 
+      <div class="texttopo">
+        <h5>Album</h5>
+        <h1>{{ her.name }}</h1>
+      </div> 
     </div>
     <div class="blocoprincipal">
       <div class="informations">  
@@ -84,6 +87,8 @@ export default {
       </div>  
     </div>  
   </div>
+
+
 </template>
 <style scoped>
 .container{
@@ -99,6 +104,7 @@ export default {
   margin: auto;
   width: 100%;
   padding: 10px;
+  padding-left: 400px;
 }
 
 .informations{
@@ -113,6 +119,17 @@ export default {
   margin: auto;
   width: 80%;
   padding: 10px;
+  display: flex;
+  height: 300px;
+}
+
+.topo h1{
+  
+  font-size: 100px;
+}
+
+.texttopo{
+    margin: auto;
 }
 
 img {
@@ -265,12 +282,11 @@ img {
 }
 
 .backbutton{
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
   border-radius: 30%;
-  height: 100px;
-  width: 100px;
-  margin: auto;
+
   text-decoration: none;
 }
+
 </style>

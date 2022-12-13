@@ -104,7 +104,7 @@ body{
 }
 @keyframes anim-stars {
     from {
-        transform: translateY(780px);
+        transform: translateY(780 px);
     }
     to {
         transform: translateY(100px);

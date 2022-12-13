@@ -68,10 +68,21 @@ export default {
   <div class="container">
     <header>
       <h1>Spotify Dôs</h1>
+      <h2>Artistas</h2>
+      <h2>Playlists</h2>
+      <h2>Buscar</h2>
       <RouterLink to="/perfil">
         <div class="perfil">
           <img :src="dados.images[0].url" width="50" height="50" />
-          <h2>{{ dados.display_name }}</h2>
+          <div class="dropdown">  
+              <span><h2>{{ dados.display_name }}</h2>
+              </span>
+              <div class="dropdown-content">
+                <p>Perfil</p>
+              </div>
+            </div>  
+          <!-- <img :src="dados.images[0].url" width="50" height="50" />
+          <h2>{{ dados.display_name }}</h2> -->
         </div>
       </RouterLink>
     </header>
@@ -141,6 +152,25 @@ header a:hover {
 .artistas {
   display: flex;
   text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 </style>
