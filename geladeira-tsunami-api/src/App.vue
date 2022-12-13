@@ -2,7 +2,11 @@
 </script>
 
 <template>
+
+<div class="container">
   <RouterView />
+</div>
+
 </template>
 
 <style scoped>
@@ -12,4 +16,9 @@
   padding: 2rem;
   font-weight: normal;
 }
+
+.container {
+  height: 100vh;
+}
+
 </style>

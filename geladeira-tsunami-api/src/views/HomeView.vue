@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <main class="homepage">
+  <main class="container">
     <div class="stars"></div>
     <div class="stars2"></div>
     <body>
@@ -17,6 +17,14 @@
 </template>
 
 <style scoped>
+a:link {
+  color: white;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
+}
 .bemvindo{
   margin-left: 40px;
 }
