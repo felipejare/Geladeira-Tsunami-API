@@ -68,9 +68,11 @@ export default {
   <div class="container">
     <header>
       <h1>Spotify Dôs</h1>
-      <h2>Artistas</h2>
-      <h2>Playlists</h2>
-      <h2>Buscar</h2>
+      <div class="navbar">
+        <h2>Artistas</h2>
+        <h2>Playlists</h2>
+        <h2>Buscar</h2>
+      </div>
       <RouterLink to="/perfil">
         <div class="perfil">
           <img :src="dados.images[0].url" width="50" height="50" />
@@ -95,12 +97,58 @@ export default {
         />
       </div>
     </div>
-    <hr>
-    <footer></footer>
+    <footer>
+      <h3>Developers:</h3>
+      <div class="zgbsss">
+        <p>zgbsss</p>
+        <a href="https://github.com/zgbsss" class="fa fa-github"></a>
+        <a href="https://twitter.com/elfzwonpil" class="fa fa-twitter"></a>
+        <a href="https://www.instagram.com/z.gbsss/" class="fa fa-instagram"></a>
+      </div>
+      <div class="felepopolo">
+        <p>felepopolo</p>
+        <a href="https://github.com/felipejare" class="fa fa-github"></a>
+        <a href="https://twitter.com/felepopolo" class="fa fa-twitter"></a>
+        <a href="https://www.instagram.com/jare_kuhl/" class="fa fa-instagram"></a>
+      </div>
+    </footer>
   </div>
 </template>
 
 <style scoped>
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #26312d;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  padding: 30px;
+}
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  color: #4d6360;
+}
+.fa-github:hover {
+  color: #333333;
+}
+.fa-twitter:hover {
+  color: #1DA1F2;
+}
+.fa-instagram:hover {
+  color: #E4405F;
+}
+div p {
+  text-decoration: underline;
+}
+
+
+
 .container {
   background: linear-gradient(0, #19201e, #3d4e48);
 }
@@ -167,6 +215,14 @@ header a:hover {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
   z-index: 1;
+}
+
+.navbar {
+  background-color: black;
+  display: flex;
+  margin-left: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 .dropdown:hover .dropdown-content {

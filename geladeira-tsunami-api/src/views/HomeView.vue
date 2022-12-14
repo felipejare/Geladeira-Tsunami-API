@@ -6,7 +6,7 @@
     <div class="stars2"></div>
     <body>
       <div class="divCenter">
-        <h1 class="bemvindo">Bem vindos ao TSIDGE</h1>
+        <h1 class="bemvindo">Bem vindos ao Spotify 2</h1>
         <a href="http://localhost:8888">
           <button class="button-64" role="button"><span class="text">Entre aqui!!1!</span></button>
         </a>

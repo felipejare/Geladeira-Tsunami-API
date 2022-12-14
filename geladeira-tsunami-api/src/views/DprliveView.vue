@@ -7,7 +7,13 @@ export default {
   
   data() {
     return {
-      dados: {},
+      dados: {
+        images: [
+          {
+            url: "",
+          },
+        ],
+      },
       her: [],
       dprlive: {},
     };
@@ -62,17 +68,19 @@ export default {
 <template>
   
   <div class="container ">
-    <a href="http://localhost:5173/main" class="backbutton">Voltar</a>
     <div class="topo">
-      <p class="titulo">
-        {{ dprlive.name }}
-        {{ dprlive.genres }}
-      </p>
+      <a href="http://localhost:5173/main" class="backbutton">Voltar</a>
       <img :src="her.images[0].url" width="200" height="200" />
       <div class="texttopo">
         <h5>Album</h5>
         <h1>{{ her.name }}</h1>
       </div> 
+      <div class="artcard">
+        <img :src="dprlive.images[0].url" width="350" height="350" class="imgart" />
+        <p class="titulo">
+          {{ dprlive.name }}
+        </p>
+      </div>  
     </div>
     <div class="blocoprincipal">
       <div class="informations">  
@@ -285,8 +293,32 @@ img {
   background-color: rgb(0, 0, 0);
   color: white;
   border-radius: 30%;
-
+  height: 30px;
+  width: 50px;
+  align-items: center;
+  display: flex;
+  
   text-decoration: none;
+}
+
+.artcard{
+  background-color: black;
+  height: 40px;
+  width: 120px;
+  display: flex;
+  border-radius: 30px;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.artcard :hover{
+  background-color: #0efc8d;
+}
+
+.imgart{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 </style>

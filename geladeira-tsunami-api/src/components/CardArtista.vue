@@ -55,4 +55,5 @@ export default {
   color: white;
   font-size: larger;
 }
+
 </style>
