@@ -69,7 +69,7 @@ export default {
   
   <div class="container ">
     <div class="topo">
-      <a href="http://localhost:5173/main" class="backbutton">Voltar</a>
+      <a href="http://localhost:5173/main" class="backbutton"></a>
       <img :src="her.images[0].url" width="200" height="200" />
       <div class="texttopo">
         <h5>Album</h5>
@@ -289,16 +289,35 @@ img {
   top: 0;
 }
 
-.backbutton{
-  background-color: rgb(0, 0, 0);
-  color: white;
-  border-radius: 30%;
+.backbutton {
+  background-color: #9c7b8b;
+  color: black;
+  margin: 10px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 30px;
   height: 30px;
-  width: 50px;
-  align-items: center;
-  display: flex;
-  
-  text-decoration: none;
+  border: 2px solid;
+  border-radius: 100px;
+}
+.backbutton::after {
+  color: black;
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(45deg);
+  left: 10px;
+  top: 8px;
+}
+.backbutton:hover {
+  background-color: #d49ab6;
 }
 
 .artcard{

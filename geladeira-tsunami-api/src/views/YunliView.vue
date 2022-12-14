@@ -1,6 +1,6 @@
 <script>
 import axios from "axios";
-import { mapStores, mapState} from 'pinia'
+import { mapStores, mapState } from "pinia";
 import { useAuthStore } from "../stores/auth";
 
 export default {
@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     ...mapStores(useAuthStore),
-    ...mapState(useAuthStore, ['token'])
+    ...mapState(useAuthStore, ["token"]),
   },
   methods: {
     getHashParams() {
@@ -80,23 +80,28 @@ export default {
 </script>
 
 <template>
-  <div class="container ">
+  <div class="container">
     <div class="topo">
-      <a href="http://localhost:5173/main" class="backbutton">Voltar</a>
+      <a href="http://localhost:5173/main" class="backbutton"></a>
       <img :src="trashtalk.images[0].url" width="200" height="200" />
       <div class="texttopo">
         <h5>Album</h5>
         <h1>{{ trashtalk.name }}</h1>
-      </div> 
+      </div>
       <div class="artcard">
-        <img :src="yunli.images[0].url" width="350" height="350" class="imgart" />
+        <img
+          :src="yunli.images[0].url"
+          width="350"
+          height="350"
+          class="imgart"
+        />
         <p class="titulo">
           {{ yunli.name }}
         </p>
-      </div>  
+      </div>
     </div>
     <div class="blocoprincipal">
-      <div class="informations">  
+      <div class="informations">
         <button class="button-78" role="button">P</button>
         <div class="heart"></div>
         <div class="musicas">
@@ -107,40 +112,42 @@ export default {
             </audio>
           </div>
         </div>
-      </div>  
-    </div>  
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-
-
-.container{
-  color: #FFFFFF;
+.musicas {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 500px;
+}
+.container {
+  color: #ffffff;
   background: linear-gradient(0, #000000, rgb(233, 191, 8));
   height: 100vh;
 }
 
-.blocoprincipal{
+.blocoprincipal {
   background: linear-gradient(1, #00000000, #000000);
-  background-color:rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   margin: auto;
   width: 100%;
   padding: 10px;
   padding-left: 400px;
-  
 }
 
-.informations{
+.informations {
   padding-top: 30px;
   padding-left: 30px;
   margin: auto;
-
-
+  /* height: 100vh; */
 }
 
-.topo{
+.topo {
   margin: auto;
   width: 80%;
   padding: 10px;
@@ -148,19 +155,17 @@ export default {
   height: 300px;
 }
 
-.topo h1{
-  
+.topo h1 {
   font-size: 100px;
 }
 
-.texttopo{
-    margin: auto;
+.texttopo {
+  margin: auto;
 }
 
 img {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    
 }
 
 /* CSS */
@@ -177,7 +182,7 @@ img {
   display: inline-block;
   flex-direction: row;
   flex-shrink: 0;
-  font-family: Eina01,sans-serif;
+  font-family: Eina01, sans-serif;
   font-size: 16px;
   font-weight: 800;
   justify-content: center;
@@ -241,7 +246,11 @@ img {
 }
 
 .button-78:hover:not(:disabled):before {
-  background: linear-gradient(92.83deg, rgb(38, 255, 154) 0%, rgb(78, 211, 189) 100%);
+  background: linear-gradient(
+    92.83deg,
+    rgb(38, 255, 154) 0%,
+    rgb(78, 211, 189) 100%
+  );
 }
 
 .button-78:hover:not(:disabled):after {
@@ -258,7 +267,12 @@ img {
 }
 
 .button-78:active:not(:disabled):before {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #0efc8d 0, #41a083 100%);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    linear-gradient(92.83deg, #0efc8d 0, #41a083 100%);
 }
 
 .button-78:active:not(:disabled):after {
@@ -271,7 +285,7 @@ img {
 
 .button-78:disabled {
   cursor: default;
-  opacity: .24;
+  opacity: 0.24;
 }
 
 .heart {
@@ -283,7 +297,6 @@ img {
   top: 13px;
   transform: rotate(-45deg);
   width: 30px;
-  
 }
 
 .heart:before,
@@ -306,19 +319,38 @@ img {
   top: 0;
 }
 
-.backbutton{
-  background-color: rgb(0, 0, 0);
-  color: white;
-  border-radius: 30%;
+.backbutton {
+  background-color: #c2a137;
+  color: black;
+  margin: 10px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 30px;
   height: 30px;
-  width: 50px;
-  align-items: center;
-  display: flex;
-  
-  text-decoration: none;
+  border: 2px solid;
+  border-radius: 100px;
+}
+.backbutton::after {
+  color: black;
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(45deg);
+  left: 10px;
+  top: 8px;
+}
+.backbutton:hover {
+  background-color: #8f7729;
 }
 
-.artcard{
+.artcard {
   background-color: black;
   height: 40px;
   width: 120px;
@@ -328,15 +360,13 @@ img {
   padding-left: 10px;
 }
 
-.artcard :hover{
+.artcard :hover {
   background-color: #0efc8d;
 }
 
-.imgart{
+.imgart {
   width: 30px;
   height: 30px;
   border-radius: 50%;
 }
-
-
 </style>

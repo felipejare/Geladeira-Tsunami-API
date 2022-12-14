@@ -47,9 +47,9 @@ export default {
 <template>
   <div class="container">
     <header>
-      <a href="http://localhost:5173/main"><button>Voltar</button></a>
-        <img :src="dados.images[0].url" />
-        <h1>{{ dados.display_name }}</h1>
+      <a href="http://localhost:5173/main"><button></button></a>
+      <img :src="dados.images[0].url" />
+      <h1>{{ dados.display_name }}</h1>
     </header>
     <main>
       <p>{{ dados.product }}</p>
@@ -62,6 +62,8 @@ export default {
 </template>
 
 <style scoped>
+@import url("https://css.gg/chevron-left-o.css");
+
 header {
   background: linear-gradient(0, #1c2421, #324b42);
   display: flex;
@@ -77,14 +79,34 @@ header img {
   filter: drop-shadow(0 0 10px rgb(44, 122, 83));
 }
 button {
-  background-color: #446e5f;
-  border: 0;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
+  background-color: #324b42;
+  color: black;
+  margin: 10px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 30px;
+  height: 30px;
+  border: 2px solid;
+  border-radius: 100px;
+}
+button::after {
+  color: black;
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(45deg);
+  left: 10px;
+  top: 8px;
 }
 button:hover {
-  background-color: #a8e2ce;
+  background-color: #6f9e8d;
 }
 
 h1 {
@@ -92,11 +114,13 @@ h1 {
   margin-left: 50px;
   margin-top: 250px;
 }
-p {
+main p {
   font-size: 20px;
+  margin-top: 50px;
 }
 main {
-  height: 300px;
+  height: 220px;
+  text-align: center;
 }
 
 footer {

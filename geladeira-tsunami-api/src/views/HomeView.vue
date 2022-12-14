@@ -6,7 +6,7 @@
     <div class="stars2"></div>
     <body>
       <div class="divCenter">
-        <h1 class="bemvindo">Bem vindos ao Spotify 2</h1>
+        <h1 class="bemvindo">Bem vindos ao Spotify Dôs</h1>
         <a href="http://localhost:8888">
           <button class="button-64" role="button"><span class="text">Entre aqui!!1!</span></button>
         </a>
@@ -39,8 +39,7 @@ body{
 }
 
 .divCenter { 
-  box-shadow: #202928
-   8px 8px;
+  box-shadow: #202928 8px 8px;
  background-color: #4D6360; 
  width: 400px; 
  height: 250px; 
@@ -50,6 +49,8 @@ body{
  position: absolute; 
  top: 50%;
  border-radius: 10px;
+ text-align: center;
+ font-size: 16px;
 
 }
 
